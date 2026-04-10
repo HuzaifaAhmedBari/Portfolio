@@ -42,3 +42,19 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
+
+// Mobile Navigation Toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const navItems = document.querySelectorAll('.nav-links li a');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-active');
+});
+
+// Close mobile menu when a link is clicked
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        navLinks.classList.remove('nav-active');
+    });
+});
